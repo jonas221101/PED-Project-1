@@ -1,12 +1,12 @@
 Plecs {
-  Name          "PV_boost_MPPT_edit"
+  Name          "PV_boost_MPPT_Q2"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "2"
+  TimeSpan      "1"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "1e-5"
+  MaxStep       "5e-6"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "5"
@@ -63,9 +63,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 23; 1536, 933]
+    Location      [0, 26; 1536, 936]
     ZoomFactor    1.49863
-    SliderPosition [52, 159]
+    SliderPosition [52, 131]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -880,7 +880,7 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "0"
+        Value         "1"
         Show          off
       }
       Parameter {
@@ -1272,11 +1272,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [317, 246; 1023, 908]
+      Location      [317, 246; 1023, 917]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAAAsIAAAJ7AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"///8AAAB4AP///wAAAsIAAAKEAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1380,7 +1380,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -1422,11 +1422,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1536, 1004]
+      Location      [0, 27; 1536, 1013]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABgAAAAO2AAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABgAAAAO/AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -2881,7 +2881,7 @@ Plecs {
           }
           Parameter {
             Variable      "f"
-            Value         "70e3"
+            Value         "150e3"
             Show          off
           }
           Parameter {
@@ -3596,7 +3596,7 @@ Plecs {
       LabelPosition southSoutheast
       Parameter {
         Variable      "C"
-        Value         "2.16e-3"
+        Value         "666.6e-6"
         Show          on
       }
       Parameter {
@@ -3771,11 +3771,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1536, 1013]
+      Location      [0, 26; 1536, 1057]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAY/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAANYAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAAOFAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4368,11 +4368,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 26; 1536, 1057]
+      Location      [0, 26; 1536, 1065]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAY/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAAOFAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAAONAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4498,7 +4498,7 @@ Plecs {
       Frame         [-15, -10; 15, 10]
       Parameter {
         Variable      "Value"
-        Value         "400"
+        Value         "375"
         Show          off
       }
       Parameter {
@@ -5030,25 +5030,6 @@ Plecs {
       }
     }
     Component {
-      Type          VoltageSource
-      Name          "V"
-      Show          on
-      Position      [735, 295]
-      Direction     down
-      Flipped       on
-      LabelPosition east
-      Parameter {
-        Variable      "DiscretizationBehavior"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "StateSpaceInlining"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
       Type          Step
       Name          "Step1"
       Show          on
@@ -5189,35 +5170,28 @@ Plecs {
           }
         }
         Branch {
-          Points        [735, 350]
+          Points        [540, 350]
           Branch {
-            Points        [540, 350]
+            Points        [455, 350]
             Branch {
-              Points        [455, 350]
+              DstComponent  "Vpv meas."
+              DstTerminal   2
+            }
+            Branch {
+              Points        [295, 350]
               Branch {
-                DstComponent  "Vpv meas."
+                Points        [235, 350]
+                DstComponent  "PV_Villalva"
                 DstTerminal   2
               }
               Branch {
-                Points        [295, 350]
-                Branch {
-                  Points        [235, 350]
-                  DstComponent  "PV_Villalva"
-                  DstTerminal   2
-                }
-                Branch {
-                  DstComponent  "PV_Villalva1"
-                  DstTerminal   2
-                }
+                DstComponent  "PV_Villalva1"
+                DstTerminal   2
               }
-            }
-            Branch {
-              DstComponent  "IC meas.1"
-              DstTerminal   2
             }
           }
           Branch {
-            DstComponent  "V"
+            DstComponent  "IC meas.1"
             DstTerminal   2
           }
         }
@@ -5478,16 +5452,8 @@ Plecs {
         }
       }
       Branch {
-        Points        [740, 195]
-        Branch {
-          DstComponent  "RL"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [735, 195]
-          DstComponent  "V"
-          DstTerminal   1
-        }
+        DstComponent  "RL"
+        DstTerminal   1
       }
     }
     Connection {
@@ -5687,8 +5653,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Step1"
       SrcTerminal   1
-      DstComponent  "V"
-      DstTerminal   3
+      Points        [725, 295]
     }
     Connection {
       Type          Signal

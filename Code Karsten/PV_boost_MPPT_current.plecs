@@ -1,5 +1,5 @@
 Plecs {
-  Name          "PV_boost_MPPT_edit"
+  Name          "PV_boost_MPPT_current"
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
@@ -65,7 +65,7 @@ Plecs {
   Schematic {
     Location      [0, 23; 1536, 933]
     ZoomFactor    1.49863
-    SliderPosition [52, 159]
+    SliderPosition [0, 143]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -1364,11 +1364,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1536, 955]
+      Location      [8, 31; 1528, 923]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAXfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAABgAAAABQAP///wAABgAAAAOJAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAAAABgAAAABQAP///wAABfAAAANhAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1380,7 +1380,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2367,10 +2367,10 @@ Plecs {
       Type          Ammeter
       Name          "IL meas."
       Show          on
-      Position      [600, 195]
-      Direction     right
+      Position      [580, 195]
+      Direction     left
       Flipped       off
-      LabelPosition north
+      LabelPosition south
     }
     Component {
       Type          Voltmeter
@@ -3612,11 +3612,11 @@ Plecs {
       Position      [720, 195]
       Direction     right
       Flipped       off
-      LabelPosition south
+      LabelPosition north
       Parameter {
         Variable      "R"
         Value         "0.03799"
-        Show          off
+        Show          on
       }
     }
     Component {
@@ -3695,10 +3695,10 @@ Plecs {
       Type          Goto
       Name          "Goto6"
       Show          off
-      Position      [600, 225]
-      Direction     down
+      Position      [580, 145]
+      Direction     up
       Flipped       off
-      LabelPosition west
+      LabelPosition east
       Parameter {
         Variable      "Tag"
         Value         "iL"
@@ -4173,11 +4173,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 26; 1536, 985]
+      Location      [0, 23; 1536, 955]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABgAAAAOkAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAABgAAAAOJAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4230,11 +4230,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 26; 1536, 1030]
+      Location      [0, 26; 1536, 1039]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAXfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAANwAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAAN5AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4548,11 +4548,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [8, 31; 1528, 974]
+      Location      [0, 23; 1536, 955]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAXwAAAAc/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABfAAAABQAP///wAABfAAAAMdAAAA"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAc/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAAMSAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4664,40 +4664,6 @@ Plecs {
       Parameter {
         Variable      "NoMatchingCounterpartAction"
         Value         "2"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Constant"
-      Show          on
-      Position      [635, 610]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-10, -10; 10, 10]
-      Parameter {
-        Variable      "Value"
-        Value         "0.5"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          ManualSignalSwitch
-      Name          "Manual Switch"
-      Show          on
-      Position      [700, 575]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "SwitchState"
-        Value         "1"
         Show          off
       }
     }
@@ -4910,11 +4876,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1536, 1003]
+      Location      [0, 26; 1536, 1033]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAc/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAANCAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABQAP///wAABgAAAANdAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5030,54 +4996,6 @@ Plecs {
       }
     }
     Component {
-      Type          VoltageSource
-      Name          "V"
-      Show          on
-      Position      [735, 295]
-      Direction     down
-      Flipped       on
-      LabelPosition east
-      Parameter {
-        Variable      "DiscretizationBehavior"
-        Value         "2"
-        Show          off
-      }
-      Parameter {
-        Variable      "StateSpaceInlining"
-        Value         "1"
-        Show          off
-      }
-    }
-    Component {
-      Type          Step
-      Name          "Step1"
-      Show          on
-      Position      [680, 295]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Time"
-        Value         "1"
-        Show          off
-      }
-      Parameter {
-        Variable      "Before"
-        Value         "400"
-        Show          off
-      }
-      Parameter {
-        Variable      "After"
-        Value         "410"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
       Type          From
       Name          "From24"
       Show          off
@@ -5189,35 +5107,28 @@ Plecs {
           }
         }
         Branch {
-          Points        [735, 350]
+          Points        [540, 350]
           Branch {
-            Points        [540, 350]
+            Points        [455, 350]
             Branch {
-              Points        [455, 350]
+              DstComponent  "Vpv meas."
+              DstTerminal   2
+            }
+            Branch {
+              Points        [295, 350]
               Branch {
-                DstComponent  "Vpv meas."
+                Points        [235, 350]
+                DstComponent  "PV_Villalva"
                 DstTerminal   2
               }
               Branch {
-                Points        [295, 350]
-                Branch {
-                  Points        [235, 350]
-                  DstComponent  "PV_Villalva"
-                  DstTerminal   2
-                }
-                Branch {
-                  DstComponent  "PV_Villalva1"
-                  DstTerminal   2
-                }
+                DstComponent  "PV_Villalva1"
+                DstTerminal   2
               }
-            }
-            Branch {
-              DstComponent  "IC meas.1"
-              DstTerminal   2
             }
           }
           Branch {
-            DstComponent  "V"
+            DstComponent  "IC meas.1"
             DstTerminal   2
           }
         }
@@ -5275,7 +5186,7 @@ Plecs {
         }
         Branch {
           DstComponent  "IL meas."
-          DstTerminal   2
+          DstTerminal   1
         }
       }
     }
@@ -5390,13 +5301,6 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "IL meas."
-      SrcTerminal   3
-      DstComponent  "Goto6"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "From10"
       SrcTerminal   1
       DstComponent  "V and I controllers"
@@ -5478,16 +5382,8 @@ Plecs {
         }
       }
       Branch {
-        Points        [740, 195]
-        Branch {
-          DstComponent  "RL"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [735, 195]
-          DstComponent  "V"
-          DstTerminal   1
-        }
+        DstComponent  "RL"
+        DstTerminal   1
       }
     }
     Connection {
@@ -5529,21 +5425,6 @@ Plecs {
     }
     Connection {
       Type          Wire
-      SrcComponent  "IL meas."
-      SrcTerminal   1
-      Points        [620, 195]
-      Branch {
-        DstComponent  "L"
-        DstTerminal   2
-      }
-      Branch {
-        Points        [620, 225]
-        DstComponent  "Vm1"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Wire
       SrcComponent  "L"
       SrcTerminal   1
       Points        [695, 195]
@@ -5579,38 +5460,6 @@ Plecs {
       Points        [670, 210; 670, 245]
       DstComponent  "Goto9"
       DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vs_ref to D"
-      SrcTerminal   2
-      Points        [700, 540; 670, 540]
-      DstComponent  "Manual Switch"
-      DstTerminal   2
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Constant"
-      SrcTerminal   1
-      Points        [660, 610; 660, 580]
-      DstComponent  "Manual Switch"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Manual Switch"
-      SrcTerminal   1
-      Points        [730, 575]
-      Branch {
-        Points        [730, 420]
-        DstComponent  "PWM Modulator"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [730, 640]
-        DstComponent  "I x t1"
-        DstTerminal   1
-      }
     }
     Connection {
       Type          Signal
@@ -5685,18 +5534,49 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Step1"
-      SrcTerminal   1
-      DstComponent  "V"
-      DstTerminal   3
-    }
-    Connection {
-      Type          Signal
       SrcComponent  "From24"
       SrcTerminal   1
       Points        [630, 760; 630, 740]
       DstComponent  "I x t3"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "IL meas."
+      SrcTerminal   3
+      DstComponent  "Goto6"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Wire
+      SrcComponent  "L"
+      SrcTerminal   2
+      Points        [620, 195]
+      Branch {
+        Points        [620, 225]
+        DstComponent  "Vm1"
+        DstTerminal   1
+      }
+      Branch {
+        DstComponent  "IL meas."
+        DstTerminal   2
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Vs_ref to D"
+      SrcTerminal   2
+      Points        [710, 510; 710, 575; 730, 575]
+      Branch {
+        Points        [730, 420]
+        DstComponent  "PWM Modulator"
+        DstTerminal   1
+      }
+      Branch {
+        Points        [730, 640]
+        DstComponent  "I x t1"
+        DstTerminal   1
+      }
     }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-size:12px;\">PV </sp"
