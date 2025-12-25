@@ -1,0 +1,188 @@
+clc; clear; close all;
+
+%% -------------------------------------------------
+% Parameters
+%% -------------------------------------------------
+L  = 0.4137e-3;
+C  = 40e-6;
+RL = 0.03799;
+fs = 70e3;
+Vb = 750;
+D  = 0.5;
+
+
+%% -------------------------------------------------
+% Plant models
+%% -------------------------------------------------
+s = tf('s');
+
+% Full LC plant (duty -> inductor current)
+den = s^2 + (RL/L)*s + 1/(L*C);
+G11 = (Vb/L)*s / den;
+
+% Simplified RL plant
+G11simp = Vb/(s*L + RL);
+
+%% -------------------------------------------------
+% 1) Plant comparison
+%% -------------------------------------------------
+figure
+bode(G11, G11simp)
+grid on
+legend('Full LC plant','Simplified RL plant','Location','best')
+title('Duty-cycle to Inductor Current Transfer Function')
+
+%% -------------------------------------------------
+% PI controller design for fs/10 and fs/5
+% Phase margin = 50 deg (SIMPLIFIED model)
+%% -------------------------------------------------
+
+PM = 50*pi/180;   % desired phase margin [rad]
+
+% Crossover frequencies
+fc1 = 7000;        % 7 kHz
+fc2 = 14e3;       % 14 kHz
+
+wc1 = 2*pi*fc1;
+wc2 = 2*pi*fc2;
+
+% --- Controller for 7 kHz ---
+wi1 = wc1;  % PI zero  /tan(PM)
+Kp1 = wc1*L/Vb; 
+Ki1 = Kp1 * wi1;
+fprintf('7 kHz controller:\n');
+fprintf('  Kp1 = %.6g\n', Kp1);
+fprintf('  Ki1 = %.6g\n', Ki1);
+Gc1 = Kp1*(1 + wi1/s);
+
+% --- Controller for 14 kHz ---
+wi2 = wc2/tan(PM);
+Kp2 = wc2*L/Vb;
+Gc2 = Kp2*(1 + wi2/s);
+Ki2 = Kp2 * wi2;
+
+fprintf('14 kHz controller:\n');
+fprintf('  Kp2 = %.6g\n', Kp2);
+fprintf('  Ki2 = %.6g\n', Ki2);
+
+fc3 = 300;                 % 300 Hz
+wc3 = 2*pi*fc3;
+
+wi3 = wc3 / tan(PM);       % PI zero
+Kp3 = wc3 * L / Vb;
+Ki3 = Kp3 * wi3;
+
+Gc3 = Kp3 * (1 + wi3/s);
+
+fprintf('300 Hz controller:\n');
+fprintf('  Kp3 = %.6g\n', Kp3);
+fprintf('  Ki3 = %.6g\n', Ki3);
+
+
+%% -------------------------------------------------
+% 3) Open-loop systems (FULL plant)
+%% -------------------------------------------------
+L1 = Gc1 * G11;
+L2 = Gc2 * G11;
+
+%% -------------------------------------------------
+% Open-loop systems (SIMPLIFIED plant)
+%% -------------------------------------------------
+L1_simp = Gc1 * G11simp;
+L2_simp = Gc2 * G11simp;
+
+%% -------------------------------------------------
+% 4) Open-loop Bode + margins (FULL plant)
+%% -------------------------------------------------
+figure
+margin(L1)
+grid on
+title('Open-loop (Full plant), PI controller, f_c = 7 kHz')
+
+figure
+margin(L2)
+grid on
+title('Open-loop (Full plant), PI controller, f_c = 14 kHz')
+
+L3 = Gc3 * G11;
+
+figure
+margin(L3)
+grid on
+title('Open-loop (Full plant), PI controller, f_c = 300 Hz')
+
+%% -------------------------------------------------
+% Open-loop Bode + margins (SIMPLIFIED plant)
+%% -------------------------------------------------
+figure
+margin(L1_simp)
+grid on
+title('Open-loop (Simplified plant), PI controller, f_c = 70 Hz')
+
+figure
+margin(L2_simp)
+grid on
+title('Open-loop (Simplified plant), PI controller, f_c = 700 Hz')
+
+L3_simp = Gc3 * G11simp;
+
+figure
+margin(L3_simp)
+grid on
+title('Open-loop (Simplified plant), PI controller, f_c = 300 Hz')
+
+%% -------------------------------------------------
+% 5) Closed-loop current response
+%% -------------------------------------------------
+T1 = feedback(L1,1);
+T2 = feedback(L2,1);
+
+figure
+step(T1, T2, 0.2)
+grid on
+legend('f_c = 7 kHz','f_c = 14kHz','Location','best')
+title('Closed-loop Inductor Current Response (Full plant)')
+
+T3 = feedback(L3,1);
+
+figure
+step(T1, T3, 0.5)
+grid on
+legend('7 kHz','300 Hz','Location','best')
+title('Closed-loop Inductor Current Response (Full plant)')
+
+%% -------------------------------------------------
+% Closed-loop responses (SIMPLIFIED plant)
+%% -------------------------------------------------
+T1_simp = feedback(L1_simp,1);
+T2_simp = feedback(L2_simp,1);
+
+figure
+step(T1_simp, T2_simp, 0.2)
+grid on
+legend('f_c = 70 Hz','f_c = 700 Hz','Location','best')
+title('Closed-loop Inductor Current (Simplified plant)')
+
+%% -------------------------------------------------
+% 6) Control effort (duty-cycle behavior)
+%% -------------------------------------------------
+U1 = feedback(Gc1, G11);
+U2 = feedback(Gc2, G11);
+
+figure
+step(U1, U2, 0.2)
+grid on
+legend('f_c = 70 Hz','f_c = 700 Hz','Location','best')
+title('Duty-cycle (Control Effort) Response – Full plant')
+
+%% -------------------------------------------------
+% Control effort (SIMPLIFIED plant)
+%% -------------------------------------------------
+U1_simp = feedback(Gc1, G11simp);
+U2_simp = feedback(Gc2, G11simp);
+
+figure
+step(U1_simp, U2_simp, 0.2)
+grid on
+legend('f_c = 70 Hz','f_c = 700 Hz','Location','best')
+title('Duty-cycle Response – Simplified plant')
