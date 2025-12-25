@@ -1,9 +1,9 @@
 Plecs {
   Name          "PV_characterization"
-  Version       "4.7"
+  Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1.5"
+  TimeSpan      "1.0"
   Timeout       ""
   Solver        "radau"
   MaxStep       "1e-4"
@@ -14,26 +14,31 @@ Plecs {
   RelTol        "1e-3"
   AbsTol        "-1"
   TurnOnThreshold "0"
+  NonIdealSwitchResistance "1"
   SyncFixedStepTasks "2"
   UseSingleCommonBaseRate "2"
   LossVariableLimitExceededMsg "3"
   NegativeSwitchLossMsg "3"
   DivisionByZeroMsg "3"
+  DatatypeOverflowMsg "2"
+  DatatypeInheritanceConflictMsg "1"
+  ContSampleTimeConflictMsg "1"
   StiffnessDetectionMsg "2"
   MaxConsecutiveZCs "1000"
   AlgebraicLoopWithStateMachineMsg "3"
   AssertionAction "1"
+  FixedPointDatatypeOverride "1"
   InitializationCommands "%%% Solar Panel (KC200GT Solar Array)\n\nSP.Ns = 54;"
-"       % [] - number of solar cells in a solar painel\nSP.N_PV = 22      % []"
-" - number of solar painels in string\n\nSP.T_n = 25;      % [C] - nominal tem"
-"perature of solar cells\nSP.G_n = 1000;    % [W/m^2] - nominal irradiation of"
-" solar cells\nSP.V_OC_n = 32.9; % [V] - nominal open circuit voltage of array"
-" (single panel in system)\nSP.I_SC_n = 8.21; % [A] - nominal short circuit cu"
-"rrent of array\n\nSP.Rs = 0.221;    % [ohm] - equvalent series resistance of "
-"array\nSP.Rp = 415.405;  % [ohm] - equvalent parallel resistance of array\n\n"
-"SP.a = 1.3;       % [] - diode ideality constant\n\nSP.K_V = -0.1230; % [V/K]"
-" - thermal voltage coefficient of array\nSP.K_I = 0.0032;  % [A/K] - thermal "
-"current coefficient of array"
+"       % [] - number of solar cells in a solar painel\nSP.N_PV = 22;      % ["
+"] - number of solar painels in string\n\nSP.T_n = 25;      % [C] - nominal te"
+"mperature of solar cells\nSP.G_n = 1000;    % [W/m^2] - nominal irradiation o"
+"f solar cells\nSP.V_OC_n = 32.9; % [V] - nominal open circuit voltage of arra"
+"y (single panel in system)\nSP.I_SC_n = 8.21; % [A] - nominal short circuit c"
+"urrent of array\n\nSP.Rs = 0.221;    % [ohm] - equvalent series resistance of"
+" array\nSP.Rp = 415.405;  % [ohm] - equvalent parallel resistance of array\n"
+"\nSP.a = 1.3;       % [] - diode ideality constant\n\nSP.K_V = -0.1230; % [V/"
+"K] - thermal voltage coefficient of array\nSP.K_I = 0.0032;  % [A/K] - therma"
+"l current coefficient of array\n"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -48,6 +53,7 @@ Plecs {
   CodeGenTargetSettings ""
   ExtendedMatrixPrecision "1"
   MatrixSignificanceCheck "2"
+  RemoveUnusedStateSpaceOutputs "1"
   EnableStateSpaceSplitting "2"
   DisplayStateSpaceSplitting "1"
   DiscretizationMethod "2"
@@ -57,7 +63,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [240, 108; 1920, 1058]
+    Location      [3201, 30; 4479, 1348]
     ZoomFactor    1.14437
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -142,7 +148,7 @@ Plecs {
         Variable      "Rs"
         Prompt        "Equivalent Panel Series Resistance"
         Type          FreeText
-        Value         "SP.Rs"
+        Value         "SP.Rs * SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -151,7 +157,7 @@ Plecs {
         Variable      "Rp"
         Prompt        "Equivalent Panel Shunt Resistance"
         Type          FreeText
-        Value         "SP.Rp"
+        Value         "SP.Rp *  SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -169,7 +175,7 @@ Plecs {
         Variable      "KV"
         Prompt        "Voltage-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_V"
+        Value         "SP.K_V * SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -446,7 +452,17 @@ Plecs {
             Show          off
           }
           Parameter {
-            Variable      "DataType"
+            Variable      "OutputDataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "GainDataType"
             Value         "11"
             Show          off
           }
@@ -500,6 +516,11 @@ Plecs {
             Show          off
           }
           Parameter {
+            Variable      "TerminalBasedSampleTimes"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
             Variable      "Parameters"
             Value         "Ns,Np,Tn,Gn,V_OCn,I_SCn,Rs,Rp,a,KV,KI,k,q"
             Show          off
@@ -517,6 +538,11 @@ Plecs {
           Parameter {
             Variable      "RuntimeCheck"
             Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "HighlightLevel"
+            Value         "0"
             Show          off
           }
           Parameter {
@@ -854,7 +880,7 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "1"
+        Value         "0.25"
         Show          off
       }
       Parameter {
@@ -923,7 +949,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [213, 439; 470, 651]
+        Location      [213, 439; 490, 660]
         ZoomFactor    1
         SliderPosition [6, 0]
         ShowBrowser   off
@@ -963,6 +989,11 @@ Plecs {
           Parameter {
             Variable      "DataType"
             Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
             Show          off
           }
         }
@@ -1106,6 +1137,11 @@ Plecs {
         Value         "2"
         Show          off
       }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "3"
+        Show          off
+      }
     }
     Component {
       Type          Goto
@@ -1123,6 +1159,11 @@ Plecs {
       Parameter {
         Variable      "Visibility"
         Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "3"
         Show          off
       }
     }
@@ -1144,6 +1185,11 @@ Plecs {
         Value         "2"
         Show          off
       }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "3"
+        Show          off
+      }
     }
     Component {
       Type          Ammeter
@@ -1162,15 +1208,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [606, 325; 1312, 998]
+      Location      [0, 23; 1536, 955]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAAAsIAAAKGAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
+"///8AAAB4AP///wAABgAAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
       TimeRange     "0.0"
       ShownPeriods  "1"
       Open          "0"
@@ -1182,7 +1229,7 @@ Plecs {
       PlotStyle     "1"
       ShowLegend    "1"
       Axis {
-        Name          "Power vs. Voltage"
+        Name          base64 "UG93ZXIgdnMuIFZvbHRhZ2UgYXQgNjDCsEM="
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -1216,6 +1263,11 @@ Plecs {
         Value         "2"
         Show          off
       }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
+        Show          off
+      }
     }
     Component {
       Type          From
@@ -1233,6 +1285,11 @@ Plecs {
       Parameter {
         Variable      "Visibility"
         Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
         Show          off
       }
     }
@@ -1288,6 +1345,16 @@ Plecs {
         Value         ""
         Show          off
       }
+      Parameter {
+        Variable      "SwitchModel"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "f_grid"
+        Value         "0"
+        Show          off
+      }
     }
     Component {
       Type          TriangleGenerator
@@ -1331,18 +1398,19 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1214, 319; 1920, 944]
+      Location      [0, 23; 1536, 955]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAAAsIAAAJWAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
+"///8AAAB4AP///wAABgAAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "1"
+      Open          "0"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "String Voltage (V)"
@@ -1351,7 +1419,7 @@ Plecs {
       PlotStyle     "1"
       ShowLegend    "1"
       Axis {
-        Name          "Current vs.Voltage"
+        Name          base64 "Q3VycmVudCB2cy5Wb2x0YWdlIGF0IDYwwrBD"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -1385,6 +1453,11 @@ Plecs {
         Value         "2"
         Show          off
       }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
+        Show          off
+      }
     }
     Component {
       Type          From
@@ -1402,6 +1475,11 @@ Plecs {
       Parameter {
         Variable      "Visibility"
         Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
         Show          off
       }
     }
@@ -1422,20 +1500,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [520, 270; 870, 527]
+      Location      [520, 270; 870, 536]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADQA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGYA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABmAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADmAAAA"
+"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADvAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAL/gMAAAAJAAAAC"
-"AAAAGQAAAAJAAAAZAAAAAQAAABkAAAABQAAAGQAAAAGAAAAZAAAAAcAAABkAAAAAQAAAGQAAAACAA"
-"AAZAAAAAMAAABkAAAA2QAAAAsBAAABAAAAAAAAAAAAAAAAZP////8AAACBAAAAAAAAAAsAAAC1AAA"
-"AAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAA"
-"AAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAAAA"
-"AAkAAAAAQAAAAAAAAPoAAAAACQ="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":181,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0"
@@ -1554,6 +1628,11 @@ Plecs {
         Value         "2"
         Show          off
       }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
+        Show          off
+      }
     }
     Component {
       Type          From
@@ -1571,6 +1650,11 @@ Plecs {
       Parameter {
         Variable      "Visibility"
         Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "NoMatchingCounterpartAction"
+        Value         "1"
         Show          off
       }
     }
@@ -1654,7 +1738,7 @@ Plecs {
         Variable      "Rs"
         Prompt        "Equivalent Panel Series Resistance"
         Type          FreeText
-        Value         "SP.Rs"
+        Value         "SP.Rs * SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1663,7 +1747,7 @@ Plecs {
         Variable      "Rp"
         Prompt        "Equivalent Panel Shunt Resistance"
         Type          FreeText
-        Value         "SP.Rp"
+        Value         "SP.Rp *  SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1681,7 +1765,7 @@ Plecs {
         Variable      "KV"
         Prompt        "Voltage-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_V"
+        Value         "SP.K_V * SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1690,7 +1774,7 @@ Plecs {
         Variable      "KI"
         Prompt        "Current-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_I"
+        Value         "SP.K_I "
         Show          off
         Tunable       off
         TabName       ""
@@ -1958,7 +2042,17 @@ Plecs {
             Show          off
           }
           Parameter {
-            Variable      "DataType"
+            Variable      "OutputDataType"
+            Value         "11"
+            Show          off
+          }
+          Parameter {
+            Variable      "DataTypeOverflowMode"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
+            Variable      "GainDataType"
             Value         "11"
             Show          off
           }
@@ -2012,6 +2106,11 @@ Plecs {
             Show          off
           }
           Parameter {
+            Variable      "TerminalBasedSampleTimes"
+            Value         "1"
+            Show          off
+          }
+          Parameter {
             Variable      "Parameters"
             Value         "Ns,Np,Tn,Gn,V_OCn,I_SCn,Rs,Rp,a,KV,KI,k,q"
             Show          off
@@ -2029,6 +2128,11 @@ Plecs {
           Parameter {
             Variable      "RuntimeCheck"
             Value         "2"
+            Show          off
+          }
+          Parameter {
+            Variable      "HighlightLevel"
+            Value         "0"
             Show          off
           }
           Parameter {
