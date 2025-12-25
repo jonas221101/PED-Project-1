@@ -3,10 +3,10 @@ Plecs {
   Version       "4.9"
   CircuitModel  "ContStateSpace"
   StartTime     "0.0"
-  TimeSpan      "1.0"
+  TimeSpan      "1.5"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "1e-4"
+  MaxStep       "1e-5"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "5"
@@ -29,16 +29,16 @@ Plecs {
   AssertionAction "1"
   FixedPointDatatypeOverride "1"
   InitializationCommands "%%% Solar Panel (KC200GT Solar Array)\n\nSP.Ns = 54;"
-"       % [] - number of solar cells in a solar painel\nSP.N_PV = 22;      % ["
-"] - number of solar painels in string\n\nSP.T_n = 25;      % [C] - nominal te"
-"mperature of solar cells\nSP.G_n = 1000;    % [W/m^2] - nominal irradiation o"
-"f solar cells\nSP.V_OC_n = 32.9; % [V] - nominal open circuit voltage of arra"
-"y (single panel in system)\nSP.I_SC_n = 8.21; % [A] - nominal short circuit c"
-"urrent of array\n\nSP.Rs = 0.221;    % [ohm] - equvalent series resistance of"
-" array\nSP.Rp = 415.405;  % [ohm] - equvalent parallel resistance of array\n"
-"\nSP.a = 1.3;       % [] - diode ideality constant\n\nSP.K_V = -0.1230; % [V/"
-"K] - thermal voltage coefficient of array\nSP.K_I = 0.0032;  % [A/K] - therma"
-"l current coefficient of array\n"
+"       % [] - number of solar cells in a solar painel\nSP.N_PV = 22      % []"
+" - number of solar painels in string\n\nSP.T_n = 25;      % [C] - nominal tem"
+"perature of solar cells\nSP.G_n = 1000;    % [W/m^2] - nominal irradiation of"
+" solar cells\nSP.V_OC_n = 32.9; % [V] - nominal open circuit voltage of array"
+" (single panel in system)\nSP.I_SC_n = 8.21; % [A] - nominal short circuit cu"
+"rrent of array\n\nSP.Rs = 0.221;    % [ohm] - equvalent series resistance of "
+"array\nSP.Rp = 415.405;  % [ohm] - equvalent parallel resistance of array\n\n"
+"SP.a = 1.3;       % [] - diode ideality constant\n\nSP.K_V = -0.1230; % [V/K]"
+" - thermal voltage coefficient of array\nSP.K_I = 0.0032;  % [A/K] - thermal "
+"current coefficient of array"
   InitialState  "1"
   SystemState   ""
   TaskingMode   "1"
@@ -63,7 +63,7 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [3201, 30; 4479, 1348]
+    Location      [0, 23; 1920, 989]
     ZoomFactor    1.14437
     SliderPosition [0, 0]
     ShowBrowser   off
@@ -148,7 +148,7 @@ Plecs {
         Variable      "Rs"
         Prompt        "Equivalent Panel Series Resistance"
         Type          FreeText
-        Value         "SP.Rs * SP.N_PV"
+        Value         "SP.Rs*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -157,7 +157,7 @@ Plecs {
         Variable      "Rp"
         Prompt        "Equivalent Panel Shunt Resistance"
         Type          FreeText
-        Value         "SP.Rp *  SP.N_PV"
+        Value         "SP.Rp*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -175,7 +175,7 @@ Plecs {
         Variable      "KV"
         Prompt        "Voltage-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_V * SP.N_PV"
+        Value         "SP.K_V*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -193,7 +193,7 @@ Plecs {
         Variable      "t_delay"
         Prompt        "Low Pass Filter Time Constant"
         Type          FreeText
-        Value         "1e-5"
+        Value         "1e-6"
         Show          off
         Tunable       off
         TabName       ""
@@ -880,12 +880,12 @@ Plecs {
       }
       Parameter {
         Variable      "Before"
-        Value         "0.25"
+        Value         "1"
         Show          off
       }
       Parameter {
         Variable      "After"
-        Value         "1"
+        Value         "0.2"
         Show          off
       }
       Parameter {
@@ -949,7 +949,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [213, 439; 490, 660]
+        Location      [213, 439; 470, 651]
         ZoomFactor    1
         SliderPosition [6, 0]
         ShowBrowser   off
@@ -1208,11 +1208,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1536, 955]
+      Location      [0, 27; 1920, 1024]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAABgAAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"///wAAAGgA////AAAAAwAAB4AAAABo/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAAA"
+"AB4AAAAB4AP///wAAB4AAAAPKAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
@@ -1220,7 +1220,7 @@ Plecs {
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "0"
+      Open          "1"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "String Voltage (V)"
@@ -1229,7 +1229,7 @@ Plecs {
       PlotStyle     "1"
       ShowLegend    "1"
       Axis {
-        Name          base64 "UG93ZXIgdnMuIFZvbHRhZ2UgYXQgNjDCsEM="
+        Name          "Power vs. Voltage"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -1398,19 +1398,18 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1536, 955]
+      Location      [1214, 319; 1920, 953]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAABgAAAAOJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"///8AAAB4AP///wAAAsIAAAJfAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
-"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "0"
+      Open          "1"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    "String Voltage (V)"
@@ -1419,7 +1418,7 @@ Plecs {
       PlotStyle     "1"
       ShowLegend    "1"
       Axis {
-        Name          base64 "Q3VycmVudCB2cy5Wb2x0YWdlIGF0IDYwwrBD"
+        Name          "Current vs.Voltage"
         AutoScale     1
         MinValue      0
         MaxValue      1
@@ -1504,18 +1503,18 @@ Plecs {
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABQAP///wAAAV4AAADvAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAV4AAADvAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":181,\"Labels\":[],"
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":183,\"Labels\":[],"
 "\"VisualIdxs\":[]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       Axes          "1"
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "1e-3"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -1738,7 +1737,7 @@ Plecs {
         Variable      "Rs"
         Prompt        "Equivalent Panel Series Resistance"
         Type          FreeText
-        Value         "SP.Rs * SP.N_PV"
+        Value         "SP.Rs*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1747,7 +1746,7 @@ Plecs {
         Variable      "Rp"
         Prompt        "Equivalent Panel Shunt Resistance"
         Type          FreeText
-        Value         "SP.Rp *  SP.N_PV"
+        Value         "SP.Rp*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1765,7 +1764,7 @@ Plecs {
         Variable      "KV"
         Prompt        "Voltage-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_V * SP.N_PV"
+        Value         "SP.K_V*SP.N_PV"
         Show          off
         Tunable       off
         TabName       ""
@@ -1774,7 +1773,7 @@ Plecs {
         Variable      "KI"
         Prompt        "Current-Temperature Coefficient"
         Type          FreeText
-        Value         "SP.K_I "
+        Value         "SP.K_I"
         Show          off
         Tunable       off
         TabName       ""
@@ -1783,7 +1782,7 @@ Plecs {
         Variable      "t_delay"
         Prompt        "Low Pass Filter Time Constant"
         Type          FreeText
-        Value         "1e-5"
+        Value         "1e-6"
         Show          off
         Tunable       off
         TabName       ""
@@ -1809,7 +1808,7 @@ Plecs {
         Direction     left
       }
       Schematic {
-        Location      [397, 546; 1544, 968]
+        Location      [-279, 615; 868, 1037]
         ZoomFactor    1
         SliderPosition [1, 0]
         ShowBrowser   off
