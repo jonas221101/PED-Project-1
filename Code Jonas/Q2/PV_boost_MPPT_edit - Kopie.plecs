@@ -65,7 +65,7 @@ Plecs {
   Schematic {
     Location      [0, 23; 1920, 989]
     ZoomFactor    1.14436
-    SliderPosition [0, 5]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -869,13 +869,13 @@ Plecs {
       Type          Step
       Name          "Normalized Irradiance"
       Show          on
-      Position      [130, 265]
+      Position      [65, 205]
       Direction     right
       Flipped       off
       LabelPosition south
       Parameter {
         Variable      "Time"
-        Value         "0.5"
+        Value         "0.7"
         Show          off
       }
       Parameter {
@@ -885,7 +885,7 @@ Plecs {
       }
       Parameter {
         Variable      "After"
-        Value         "1"
+        Value         "0.6"
         Show          off
       }
       Parameter {
@@ -5170,7 +5170,7 @@ Plecs {
       LabelPosition south
       Parameter {
         Variable      "DialogGeometry"
-        Value         "[0 22 1920 1009]"
+        Value         "[0 23 1920 1009]"
         Show          off
       }
       Parameter {
@@ -5250,7 +5250,7 @@ Plecs {
       }
       Parameter {
         Variable      "StartFcn"
-        Value         ""
+        Value         "PREV_Vref = 500;"
         Show          off
       }
       Parameter {
@@ -5259,7 +5259,7 @@ Plecs {
 "{\n"
 "double dP = Input(0) * Input(1) - PREV_Power;\n"
 "double dV = Input(0) - PREV_Voltage; \n"
-"double VSTEP = 10;\n"
+"double VSTEP = 1;\n"
 "double Vref = PREV_Vref;\n"
 "    if (dP > 0) {\n"
 "        if (dV > 0)\n"
@@ -5334,11 +5334,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1920, 650; 3840, 1638]
+      Location      [961, 31; 1919, 1010]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPBAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAA74AAAO4AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5497,11 +5497,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1920, 1011]
+      Location      [640, 276; 990, 503]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPBAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAV4AAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5588,6 +5588,152 @@ Plecs {
           KeepBaseline  off
           BaselineValue 0
         }
+      }
+    }
+    Component {
+      Type          Scope
+      Name          "Scope7"
+      Show          on
+      Position      [1305, 195]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Location      [0, 23; 1920, 1011]
+      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
+"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPBAAAA"
+"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
+"AAAAA=="
+      SavedViews    "AAAAAgAAAAA="
+      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":258,\"Labels\":[],"
+"\"VisualIdxs\":[]}"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
+      Axes          "1"
+      TimeRange     "0"
+      ScrollingMode "1"
+      SingleTimeAxis "1"
+      Open          "1"
+      Ts            "-1"
+      SampleLimit   "0"
+      XAxisLabel    "Time  (s)"
+      ShowLegend    "1"
+      Axis {
+        Name          "Reference Voltage with different irradiances"
+        AutoScale     1
+        MinValue      0
+        MaxValue      1
+        Signals       {}
+        SignalTypes   [ ]
+        AxisLabel     "Reference Voltage (V)"
+        Untangle      0
+        KeepBaseline  off
+        BaselineValue 0
+      }
+      Fourier {
+        SingleXAxis       on
+        AxisLabel         "Frequency / Hz"
+        Scaling           0
+        PhaseDisplay      0
+        ShowFourierLegend off
+        Axis {
+          Name          ""
+          AutoScale     1
+          MinValue      0
+          MaxValue      1
+          Signals       {}
+          Untangle      0
+          KeepBaseline  off
+          BaselineValue 0
+        }
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Step"
+      Show          on
+      Position      [900, 810]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Time"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "0"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
+      }
+    }
+    Component {
+      Type          Product
+      Name          "Product1"
+      Show          off
+      Position      [150, 265]
+      Direction     up
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
+      }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|**"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
+      }
+    }
+    Component {
+      Type          Step
+      Name          "Normalized Irradiance1"
+      Show          on
+      Position      [80, 275]
+      Direction     right
+      Flipped       off
+      LabelPosition south
+      Parameter {
+        Variable      "Time"
+        Value         "0.3"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "0.4"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "10"
+        Show          off
       }
     }
     Connection {
@@ -5721,21 +5867,6 @@ Plecs {
       Branch {
         DstComponent  "Vb meas."
         DstTerminal   2
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Normalized Irradiance"
-      SrcTerminal   1
-      Points        [205, 265]
-      Branch {
-        DstComponent  "PV_Villalva"
-        DstTerminal   4
-      }
-      Branch {
-        Points        [205, 300; 260, 300; 260, 265]
-        DstComponent  "PV_Villalva1"
-        DstTerminal   4
       }
     }
     Connection {
@@ -6237,29 +6368,6 @@ Plecs {
     Connection {
       Type          Signal
       SrcComponent  "Demux"
-      SrcTerminal   2
-      Points        [1325, 400; 1325, 420]
-      Branch {
-        Points        [1325, 485; 1370, 485]
-        Branch {
-          DstComponent  "Scope5"
-          DstTerminal   1
-        }
-        Branch {
-          Points        [1370, 600]
-          DstComponent  "Scope6"
-          DstTerminal   3
-        }
-      }
-      Branch {
-        Points        [1515, 420; 1515, 460; 610, 460]
-        DstComponent  "Vs_ref to D"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Demux"
       SrcTerminal   5
       Points        [1310, 430; 1310, 580]
       DstComponent  "Scope6"
@@ -6272,6 +6380,68 @@ Plecs {
       Points        [1305, 440; 1305, 590]
       DstComponent  "Scope6"
       DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Demux"
+      SrcTerminal   2
+      Points        [1260, 400]
+      Branch {
+        Points        [1325, 400; 1325, 420]
+        Branch {
+          Points        [1325, 485; 1370, 485]
+          Branch {
+            DstComponent  "Scope5"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [1370, 600]
+            DstComponent  "Scope6"
+            DstTerminal   3
+          }
+        }
+        Branch {
+          Points        [1515, 420; 1515, 460; 610, 460]
+          DstComponent  "Vs_ref to D"
+          DstTerminal   1
+        }
+      }
+      Branch {
+        Points        [1260, 195]
+        DstComponent  "Scope7"
+        DstTerminal   1
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Product1"
+      SrcTerminal   1
+      Points        [205, 265]
+      Branch {
+        DstComponent  "PV_Villalva"
+        DstTerminal   4
+      }
+      Branch {
+        Points        [205, 300; 260, 300; 260, 265]
+        DstComponent  "PV_Villalva1"
+        DstTerminal   4
+      }
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Normalized Irradiance"
+      SrcTerminal   1
+      Points        [105, 205; 105, 265]
+      DstComponent  "Product1"
+      DstTerminal   2
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "Normalized Irradiance1"
+      SrcTerminal   1
+      Points        [125, 275; 125, 290]
+      DstComponent  "Product1"
+      DstTerminal   3
     }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-size:12px;\">PV </sp"
