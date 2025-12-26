@@ -13,8 +13,8 @@ wc_list = [2*pi*(fs/5), 2*pi*(fs/10)];
 PM_des = 50;
 
 % Parameter-Suchraum
-Kp_range = logspace(-1, 4, 100);
-Ki_range = logspace(-1, 5, 100);
+Kp_range = -logspace(-1, 4, 100);
+Ki_range = -logspace(-1, 5, 100);
 
 Kp_res = zeros(1,2);
 Ki_res = zeros(1,2);
@@ -75,3 +75,7 @@ step(T2);
 legend("fc = fs/5", "fc = fs/10");
 grid on;
 %bode(T1,T2);
+
+Gc1 = K1;
+Gc2 = K2;
+G11simp = G11;
