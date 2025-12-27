@@ -47,3 +47,8 @@ margin(L1_simp)
 grid on
 legend('Full LC plant', 'Simplified RL plant', 'Location','best')
 title('Open-loop Bode with Margins, PI controller, f_c = 400 kHz')
+
+figure;
+pzmap(L1)
+grid on;
+title('Open-Loop Poles and Zeros');
