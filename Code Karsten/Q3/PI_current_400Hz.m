@@ -26,13 +26,13 @@ grid on
 legend('Full LC plant','Simplified RL plant','Location','best')
 title('Duty-cycle to Inductor Current Transfer Function')
 
-fc1 = 7000;        % 7 kHz
+fc1 = 400;       
 wc1 = 2*pi*fc1;
 
 wi1 = wc1; 
 Kp1 = wc1*L/(sqrt(2)*Vb); 
 Ki1 = Kp1 * wi1;
-fprintf('7 kHz controller:\n');
+fprintf('400 Hz controller:\n');
 fprintf('  Kp1 = %.6g\n', Kp1);
 fprintf('  Ki1 = %.6g\n', Ki1);
 Gc1 = Kp1*(1 + wi1/s);
@@ -46,20 +46,9 @@ hold on
 margin(L1_simp)
 grid on
 legend('Full LC plant', 'Simplified RL plant', 'Location','best')
-title('Open-loop Bode with Margins, PI controller, f_c = 7 kHz')
-
-figure
-nyquist(L1)
-grid on
-title('Nyquist Plot – Open Loop (Full LC Plant)')
+title('Open-loop Bode with Margins, PI controller, f_c = 400 kHz')
 
 figure;
 pzmap(L1)
 grid on;
 title('Open-Loop Poles and Zeros');
-
-T=feedback(L1,1);
-figure ;
-pzmap(T)
-grid on;
-title("Closed Loop Poles");

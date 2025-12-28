@@ -58,8 +58,5 @@ pzmap(L1)
 grid on;
 title('Open-Loop Poles and Zeros');
 
-T=feedback(L1,1);
 figure ;
-pzmap(T)
-grid on;
-title("Closed Loop Poles");
+pzmap()
