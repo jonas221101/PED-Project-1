@@ -6,7 +6,7 @@ Plecs {
   TimeSpan      "1"
   Timeout       ""
   Solver        "radau"
-  MaxStep       "1e-6"
+  MaxStep       "1e-5"
   InitStep      "-1"
   FixedStep     "1e-3"
   Refine        "5"
@@ -63,9 +63,9 @@ Plecs {
   ScriptsDialogGeometry ""
   ScriptsDialogSplitterPos "0"
   Schematic {
-    Location      [0, 23; 1920, 989]
+    Location      [0, -1057; 1920, -91]
     ZoomFactor    1.14436
-    SliderPosition [0, 17]
+    SliderPosition [0, 0]
     ShowBrowser   off
     BrowserWidth  100
     Component {
@@ -885,7 +885,7 @@ Plecs {
       }
       Parameter {
         Variable      "After"
-        Value         "1"
+        Value         "0.6"
         Show          off
       }
       Parameter {
@@ -1180,18 +1180,18 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1, 31; 1537, 1010]
+      Location      [0, 27; 1536, 986]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAAvsAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////AAAAAwAAAAAAAAAA/AEAAAAB+wAAABIAVABpAG0AZQBSAGEAbgBnAGUAAAAAAP/"
-"///8AAAB4AP///wAABgAAAAO4AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
+"///8AAAB4AP///wAABgAAAAOkAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBv"
 "AGwAQgBhAHIBAAAAAP////8AAAAAAAAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   ""
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
       TimeRange     "0.0"
       ShownPeriods  "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "String Voltage (V)"
@@ -1364,20 +1364,18 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [9, 31; 1911, 1010]
+      Location      [9, 32; 1911, 1002]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAduAAAAXfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB24AAABSAP///wAAB24AAANXAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB24AAABSAP///wAAB24AAANOAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
       HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":212,\"Labels\":[\""
 "Delta\"],\"VisualIdxs\":[3]}"
-      PlotPalettes  "AAAAAQAAAAMAAAABAAAAAwAAAAEC//8u4P//zMwAAAAAAAEC//8AAP///"
-"/8AAAAAAAEB/////wAAAAAAAAAAAAMAAAABAAAAAAEAAAAAAQEAAAADAAAAAQAAAAEAAAABAAAAAQ"
-"AAAAEAAAABAAAAAwAAAAEAAAAAAQAAAAABAAAAAAMAAAABQAAAAAAAAAAAAAABQAAAAAAAAAAAAAA"
-"BQAAAAAAAAAAAAAADAAAAAQEAAAABAQAAAAEB"
+      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
+"AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQE="
       Axes          "1"
       TimeRange     "0"
       ScrollingMode "1"
@@ -1385,16 +1383,15 @@ Plecs {
       Open          "1"
       Ts            "-1"
       SampleLimit   "0"
-      XAxisLabel    "Time (s)"
+      XAxisLabel    ""
       ShowLegend    "2"
       Axis {
-        Name          "PV Voltage"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
-        Signals       {"", "", "Lower Limit"}
+        Signals       {}
         SignalTypes   [ ]
-        AxisLabel     "Voltage (V)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -1425,11 +1422,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1, 31; 1537, 1019]
+      Location      [0, 27; 1536, 1013]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABgAAAAPBAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAABgAAAAO/AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -1440,7 +1437,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    ""
@@ -2411,7 +2408,7 @@ Plecs {
         Direction     right
       }
       Schematic {
-        Location      [415, 55; 1054, 278]
+        Location      [415, 55; 1054, 276]
         ZoomFactor    1
         SliderPosition [0, 0]
         ShowBrowser   off
@@ -2464,7 +2461,7 @@ Plecs {
           LabelPosition south
           Parameter {
             Variable      "DialogGeometry"
-            Value         "[691 208 1228 823]"
+            Value         "[2279 267 1228 823]"
             Show          off
           }
           Parameter {
@@ -3774,16 +3771,16 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [1, 31; 1537, 1010]
+      Location      [0, 27; 1536, 1031]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAYAAAAAY/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABSAP///wAABgAAAANRAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAABgAAAABSAP///wAABgAAAANqAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":0,\"FirstSecSize\":212,\"Labels\":[\""
-"Delta\",\"Min\",\"Max\"],\"VisualIdxs\":[3,5,6]}"
+      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":212,\"Labels\":["
+"\"Delta\",\"Min\",\"Max\"],\"VisualIdxs\":[3,5,6]}"
       PlotPalettes  "AAAAAQAAAAEAAAABAAAAAQAAAAEC//8u4P//zMwAAAAAAAEAAAABAAAAA"
 "AEAAAABAAAAAQAAAAEAAAABAAAAAAEAAAABQAAAAAAAAAAAAAABAAAAAQEAAAABAAAAAQAAAAEAAA"
 "ABAv//LuD//8zMAAAAAAABAAAAAQAAAAABAAAAAQAAAAEAAAABAAAAAQAAAAABAAAAAUAAAAAAAAA"
@@ -3792,31 +3789,29 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "1"
+      Open          "0"
       Ts            "-1"
       SampleLimit   "0"
-      XAxisLabel    "Time (s)"
-      ShowLegend    "1"
+      XAxisLabel    "Time / s"
+      ShowLegend    "2"
       Axis {
-        Name          "Inductance Voltage"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
-        AxisLabel     "Voltage (V)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          "Inductance Current"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
-        AxisLabel     "Current (A)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -4556,11 +4551,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1920, 1051]
+      Location      [0, 27; 1920, 1033]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAeAAAAAc/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAANuAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAANcAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4572,7 +4567,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -4699,7 +4694,7 @@ Plecs {
       Type          ManualSignalSwitch
       Name          "Manual Switch"
       Show          on
-      Position      [700, 565]
+      Position      [700, 575]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -4761,7 +4756,7 @@ Plecs {
       Type          From
       Name          "From21"
       Show          off
-      Position      [275, 775]
+      Position      [405, 775]
       Direction     right
       Flipped       off
       LabelPosition south
@@ -4789,11 +4784,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [677, 31; 1635, 1010]
+      Location      [9, 31; 1911, 1010]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAC0AAADUfwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMBAAAAMAAAA1EAAABoAP///wAAAAMAAAO+AAAAY/w"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAA74AAABSAP///wAAAwYAAANRAAAA"
+"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMBAAAAMAAAA1EAAABoAP///wAAAAMAAAduAAAAY/w"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB24AAABSAP///wAABrYAAANRAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -4808,28 +4803,26 @@ Plecs {
       Open          "1"
       Ts            "-1"
       SampleLimit   "0"
-      XAxisLabel    "Time (s)"
+      XAxisLabel    "Time / s"
       ShowLegend    "2"
       Axis {
-        Name          "Condensator Voltage"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
-        AxisLabel     "Voltage (V)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
       }
       Axis {
-        Name          "Condensator Current"
+        Name          ""
         AutoScale     1
         MinValue      0
         MaxValue      1
         Signals       {}
         SignalTypes   [ ]
-        AxisLabel     "Current (A)"
         Untangle      0
         KeepBaseline  off
         BaselineValue 0
@@ -5030,6 +5023,7 @@ Plecs {
       Direction     down
       Flipped       on
       LabelPosition east
+      CommentOut    DisabledOpenCircuit
       Parameter {
         Variable      "DiscretizationBehavior"
         Value         "2"
@@ -5340,11 +5334,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [961, 31; 1919, 1028]
+      Location      [961, 31; 1919, 1010]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAAIYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAA74AAAPKAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAA74AAAO4AAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5357,7 +5351,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -5503,11 +5497,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [640, 276; 990, 521]
+      Location      [640, 276; 990, 503]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAAIYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
+"G0AQQByAGUAYQAAAAAA/////wAAAF4A////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAV4AAADaAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAAV4AAADIAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5520,7 +5514,7 @@ Plecs {
       TimeRange     "0"
       ScrollingMode "1"
       SingleTimeAxis "1"
-      Open          "0"
+      Open          "1"
       Ts            "-1"
       SampleLimit   "0"
       XAxisLabel    "Time / s"
@@ -5604,11 +5598,11 @@ Plecs {
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 27; 1920, 1042]
+      Location      [0, 23; 1920, 1011]
       State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
 "G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
 "///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAAAAAAAAPw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPcAAAA"
+"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQAAAAAAP////8AAABSAP///wAAB4AAAAPBAAAA"
 "BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
 "AAAAA=="
       SavedViews    "AAAAAgAAAAA="
@@ -5685,138 +5679,60 @@ Plecs {
       }
     }
     Component {
-      Type          TransferFunction
-      Name          "Transfer Fcn"
-      Show          on
-      Position      [515, 805]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-30, -15; 30, 15]
-      Parameter {
-        Variable      "Numerator"
-        Value         "[263.76 0]"
-        Show          off
-      }
-      Parameter {
-        Variable      "Denominator"
-        Value         "[1 263.76 1.74e12]"
-        Show          off
-      }
-      Parameter {
-        Variable      "X0"
-        Value         "0"
-        Show          off
-      }
-    }
-    Component {
-      Type          Scope
-      Name          "Scope8"
-      Show          on
-      Position      [625, 805]
+      Type          Product
+      Name          "Product1"
+      Show          off
+      Position      [150, 265]
       Direction     up
       Flipped       off
       LabelPosition south
-      Location      [0, 23; 1920, 1011]
-      State         "AAAA/wAAAAD9AAAAAgAAAAEAAAAAAAAAAPwCAAAAA/sAAAAQAFoAbwBvA"
-"G0AQQByAGUAYQAAAAAA/////wAAADYA////+wAAABQAUwBhAHYAZQBkAFYAaQBlAHcAcwAAAAAA//"
-"///wAAAGgA////+wAAAAwAVAByAGEAYwBlAHMAAAAAAP////8AAABoAP///wAAAAMAAAeAAAAAdfw"
-"BAAAAAfsAAAAUAEQAYQB0AGEAVwBpAGQAZwBlAHQBAAAAAAAAB4AAAABSAP///wAAB4AAAANIAAAA"
-"BAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAOAFQAbwBvAGwAQgBhAHIBAAAAAP////8AAAAAA"
-"AAAAA=="
-      SavedViews    "AAAAAgAAAAA="
-      HeaderState   "{\"DefaultSecSize\":100,\"FirstSecSize\":128,\"Labels\":["
-"\"Delta\"],\"VisualIdxs\":[3]}"
-      PlotPalettes  "AAAAAQAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      Axes          "1"
-      TimeRange     "0.0"
-      ScrollingMode "1"
-      SingleTimeAxis "1"
-      Open          "0"
-      Ts            "-1"
-      SampleLimit   "0"
-      XAxisLabel    "Time / s"
-      ShowLegend    "1"
-      Axis {
-        Name          ""
-        AutoScale     1
-        MinValue      0
-        MaxValue      1
-        Signals       {}
-        SignalTypes   [ ]
-        Untangle      0
-        KeepBaseline  off
-        BaselineValue 0
+      Parameter {
+        Variable      "IconShape"
+        Value         "2"
+        Show          off
       }
-      Fourier {
-        SingleXAxis       on
-        AxisLabel         "Frequency / Hz"
-        Scaling           0
-        PhaseDisplay      0
-        ShowFourierLegend off
-        Axis {
-          Name          ""
-          AutoScale     1
-          MinValue      0
-          MaxValue      1
-          Signals       {}
-          Untangle      0
-          KeepBaseline  off
-          BaselineValue 0
-        }
+      Parameter {
+        Variable      "Inputs"
+        Value         "|**"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataType"
+        Value         "11"
+        Show          off
+      }
+      Parameter {
+        Variable      "DataTypeOverflowMode"
+        Value         "1"
+        Show          off
       }
     }
     Component {
-      Type          Constant
-      Name          "Upper Limit"
+      Type          Step
+      Name          "Normalized Irradiance1"
       Show          on
-      Position      [255, 690]
+      Position      [80, 275]
       Direction     right
       Flipped       off
       LabelPosition south
-      Frame         [-10, -10; 10, 10]
       Parameter {
-        Variable      "Value"
-        Value         "410.62 + 0.1956"
+        Variable      "Time"
+        Value         "0.3"
+        Show          off
+      }
+      Parameter {
+        Variable      "Before"
+        Value         "1"
+        Show          off
+      }
+      Parameter {
+        Variable      "After"
+        Value         "0.4"
         Show          off
       }
       Parameter {
         Variable      "DataType"
         Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          Constant
-      Name          "Lower Limit1"
-      Show          on
-      Position      [250, 730]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Frame         [-10, -10; 10, 10]
-      Parameter {
-        Variable      "Value"
-        Value         "410.62 - 0.1956"
-        Show          off
-      }
-      Parameter {
-        Variable      "DataType"
-        Value         "10"
-        Show          off
-      }
-    }
-    Component {
-      Type          SignalMux
-      Name          "Mux3"
-      Show          off
-      Position      [165, 725]
-      Direction     right
-      Flipped       off
-      LabelPosition south
-      Parameter {
-        Variable      "Width"
-        Value         "3"
         Show          off
       }
     }
@@ -5880,6 +5796,13 @@ Plecs {
       SrcComponent  "From4"
       SrcTerminal   1
       DstComponent  "I x t"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
+      SrcComponent  "From5"
+      SrcTerminal   1
+      DstComponent  "V x t"
       DstTerminal   1
     }
     Connection {
@@ -6289,7 +6212,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Constant"
       SrcTerminal   1
-      Points        [660, 610; 660, 570]
+      Points        [660, 610; 660, 580]
       DstComponent  "Manual Switch"
       DstTerminal   3
     }
@@ -6297,7 +6220,7 @@ Plecs {
       Type          Signal
       SrcComponent  "Manual Switch"
       SrcTerminal   1
-      Points        [725, 565; 725, 575; 730, 575]
+      Points        [730, 575]
       Branch {
         Points        [730, 420]
         DstComponent  "PWM Modulator"
@@ -6407,6 +6330,13 @@ Plecs {
     }
     Connection {
       Type          Signal
+      SrcComponent  "From21"
+      SrcTerminal   1
+      DstComponent  "Scope3"
+      DstTerminal   1
+    }
+    Connection {
+      Type          Signal
       SrcComponent  "From25"
       SrcTerminal   1
       DstComponent  "Mux2"
@@ -6457,15 +6387,23 @@ Plecs {
       SrcTerminal   2
       Points        [1260, 400]
       Branch {
-        Points        [1325, 400; 1325, 485; 1370, 485]
+        Points        [1325, 400; 1325, 420]
         Branch {
-          DstComponent  "Scope5"
-          DstTerminal   1
+          Points        [1325, 485; 1370, 485]
+          Branch {
+            DstComponent  "Scope5"
+            DstTerminal   1
+          }
+          Branch {
+            Points        [1370, 600]
+            DstComponent  "Scope6"
+            DstTerminal   3
+          }
         }
         Branch {
-          Points        [1370, 600]
-          DstComponent  "Scope6"
-          DstTerminal   3
+          Points        [1515, 420; 1515, 460; 610, 460]
+          DstComponent  "Vs_ref to D"
+          DstTerminal   1
         }
       }
       Branch {
@@ -6476,9 +6414,9 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "Normalized Irradiance"
+      SrcComponent  "Product1"
       SrcTerminal   1
-      Points        [105, 205; 105, 265; 205, 265]
+      Points        [205, 265]
       Branch {
         DstComponent  "PV_Villalva"
         DstTerminal   4
@@ -6491,64 +6429,19 @@ Plecs {
     }
     Connection {
       Type          Signal
-      SrcComponent  "From21"
+      SrcComponent  "Normalized Irradiance"
       SrcTerminal   1
-      Points        [370, 775]
-      Branch {
-        DstComponent  "Scope3"
-        DstTerminal   1
-      }
-      Branch {
-        Points        [370, 805]
-        DstComponent  "Transfer Fcn"
-        DstTerminal   1
-      }
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Transfer Fcn"
-      SrcTerminal   2
-      DstComponent  "Scope8"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Vpv soll"
-      SrcTerminal   1
-      DstComponent  "Vs_ref to D"
-      DstTerminal   1
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "From5"
-      SrcTerminal   1
-      Points        [145, 605; 145, 715]
-      DstComponent  "Mux3"
+      Points        [105, 205; 105, 265]
+      DstComponent  "Product1"
       DstTerminal   2
     }
     Connection {
       Type          Signal
-      SrcComponent  "Upper Limit"
+      SrcComponent  "Normalized Irradiance1"
       SrcTerminal   1
-      Points        [270, 710; 140, 710; 140, 725]
-      DstComponent  "Mux3"
+      Points        [125, 275; 125, 290]
+      DstComponent  "Product1"
       DstTerminal   3
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Lower Limit1"
-      SrcTerminal   1
-      Points        [265, 705; 135, 705; 135, 735]
-      DstComponent  "Mux3"
-      DstTerminal   4
-    }
-    Connection {
-      Type          Signal
-      SrcComponent  "Mux3"
-      SrcTerminal   1
-      Points        [175, 645; 150, 645]
-      DstComponent  "V x t"
-      DstTerminal   1
     }
     Annotation {
       Name          "<html><body>\n<p><span style=\" font-size:12px;\">PV </sp"

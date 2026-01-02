@@ -1,12 +1,14 @@
-clc; clear; close all;
+clear all;
+PI_current_7kHz;
+clc; close all;
 
 %% Parameters
 C = 50e-6;
 s = tf('s');
-%Ti = feedback(Gc1 * G11simp, 1);
+Ti = feedback(Gc1 * G11simp, 1);
 
 % Plant (sign absorbed in feedback)
-Gvi = -1/(C*s);
+Gvi = -1/(C*s) * Ti;
 PM_des = 60;   % desired phase margin
 
 %% -------- Design 1: fc = 700 Hz --------
@@ -17,9 +19,7 @@ wc1 = 2*pi*fc1;
 wi1 = wc1*0.5;
 
 % Gains
-%Kp1 =  2*C*wc1 / sqrt(1 + (wc1/wi1)^2);
-Kp1 =  1*C*wc1 / sqrt(1 + (wi1/wc1)^2);
-
+Kp1 =  2*C*wc1 / sqrt(1 + (wc1/wi1)^2);
 Ki1 =  Kp1 * wi1;
 
 Cv1 = -Kp1 * (1 + wi1/s);
