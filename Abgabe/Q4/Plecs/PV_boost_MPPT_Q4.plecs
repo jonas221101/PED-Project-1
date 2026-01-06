@@ -2514,7 +2514,7 @@ Plecs {
           }
           Parameter {
             Variable      "StartFcn"
-            Value         "PREV_Vref = 500;"
+            Value         "PREV_Vref = 0;"
             Show          off
           }
           Parameter {

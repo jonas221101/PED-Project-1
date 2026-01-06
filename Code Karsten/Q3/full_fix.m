@@ -1,26 +1,20 @@
 clc; clear; close all;
 
-%% =========================
 % Parameters
-%% =========================
 L  = 0.4137e-3;
-C  = 40e-6;
+C  = 50e-6;
 RL = 0.03799;
 Vb = 750;
 fs = 70e3;
 
 s = tf('s');
 
-%% =========================
 % Plant
-%% =========================
 den = s^2 + (RL/L)*s + 1/(L*C);
 Gid = (Vb/L)*s / den;     % duty -> inductor current
 Gvi = -1/(C*s);           % current -> PV voltage
 
-%% =========================
 % INNER CURRENT CONTROLLER (7 kHz)
-%% =========================
 fci = 7e3;
 wci = 2*pi*fci;
 
@@ -53,16 +47,12 @@ Ki_v = Kp_v * wi_v;
 % Voltage controller (PI + pole)
 Cv = -Kp_v * (1 + wi_v/s) * (1 / (1 + s/wp_v));
 
-%% =========================
 % FULL CASCADED SYSTEM
-%% =========================
 Gv_eff = Gvi * Ti;        % v_pv / iL*
 Lv = Cv * Gv_eff;         % voltage open-loop
 Tv = feedback(Lv,1);      % v_pv / v_pv*
 
-%% =========================
 % ANALYSIS
-%% =========================
 
 % Inner loop
 figure;
