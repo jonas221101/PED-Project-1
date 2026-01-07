@@ -24,7 +24,7 @@ grid on
 legend('Full LC plant','Simplified RL plant','Location','best')
 title('Duty-cycle to Inductor Current Transfer Function')
 
-fc1 = 7000;        % 7 kHz
+fc1 = 7000;        
 wc1 = 2*pi*fc1;
 
 wi1 = wc1; 
